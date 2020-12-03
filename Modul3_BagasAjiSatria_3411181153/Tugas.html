@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Tugas Implementasi Interface</title>
+		
+		<!--Nama	: Bagas Aji Satria
+			NIM		: 3411181153
+			Kelas	: DSE-C-->
+		
+	</head>
+	
+	<body>
+		<form name="formTugas" id="tugasku" onsubmit="return userValidate()" method="POST">
+			<input type="text" name="username" id="username" placeholder="Username" ><br>
+			<input type="password" name="password" id="pass" placeholder="Password"><br>
+			<input type="password" name="repeat" id="repeat" placeholder="Ulangi Password"><br>
+			<input type="text" name="email" id="email" placeholder="Email"><br>
+			<input type="text" name="telp" id="telp" placeholder="Nomor Telpon"><br>
+			<textarea id="alamat" name="alamat" style="width: 167px;">Alamat</textarea><br>
+			<input type="submit" name="" value="Submit">
+		</form>
+
+		<script type="text/javascript">
+		//UsernameChecks
+			function userValidate(){
+				var user = document.formTugas.username.value;
+				var pass = document.formTugas.password.value; 
+				var repeat = document.formTugas.repeat.value;
+				var mail = document.formTugas.email.value;
+				var telp = document.formTugas.telp.value;
+				var alamat = document.formTugas.repeat.value;
+				console.log(pass);
+				var passForm = /(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{4,})/;
+				var mailForm = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+				var telpForm = /[0-9]{10,12}/;
+				if(!(user.length >= 3 && user.length <= 15)){
+					alert("Format tidak sesuai!. minimal 3 karakter dan maksimal 15 karakter"); 
+					
+				}
+				
+		
+		
+		//PasswordLengthChecks
+				if(!(pass.length >= 4)){
+					alert("Format password salah");	
+				}
+		
+		//PasswordChecks
+					if(pass.match(passForm)){
+						alert("Format password tidak sesuai");
+					}
+				
+		//PasswordRepeatChecks
+				if(!(pass === repeat)){
+					alert("Password tidak sesuai");
+				}
+		
+		//EmailChecks
+				if(!(mail.match(mailForm))){  
+					alert("Format email tidak sesuai");
+				}
+
+		//NomorTeleponChecks
+				if(!(telp.match(telpForm))){
+					alert("Format no telp tidak sesuai");
+				}
+
+		//AlamatChecks
+				if(alamat == ""){
+					alert("Isi alamat lengkap");
+				}
+			}
+		</script>
+	</body>
+</html>
